@@ -6,7 +6,7 @@ export const API_URLS={
   INT_DELETE:'/interviewer/delete',
   INT_GET:'/interviewer/get'
 }
-const prod_pre_url='https://lit-refuge-73772.herokuapp.com/';
+const prod_pre_url='https://lit-refuge-73772.herokuapp.com';
 
 
 export const urlResolver= function(){
