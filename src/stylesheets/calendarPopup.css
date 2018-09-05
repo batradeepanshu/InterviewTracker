@@ -1,0 +1,44 @@
+.calendar-popup {
+  background-color: #d8d5d5;
+  width: 25rem;
+  left: 0;
+  right: 0;
+  margin: auto;
+  /* height: 25rem; */
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 7;
+  border-radius: .5rem;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+.save-event-btn{
+  width: 100%;
+}
+ textarea {
+  display: block;
+  margin: auto;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.select-int {
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: 2rem;
+  margin-bottom: 1rem;
+}
+
+.meeting-info {
+  margin-bottom: 1rem;
+}
+
+.popup-backdrop {
+  position: fixed;
+  background-color: rgba(0, 0, 0, .7);
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  cursor: pointer;
+}
