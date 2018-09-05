@@ -24,7 +24,7 @@ class App extends Component{
     this.state={};
   }
   componentWillMount(){
-    axios.get('http://wkwin5422023.global.publicisgroupe.net:8080/interviewer/get').then((resp)=>{
+    axios.get('https://wkwin5422023.global.publicisgroupe.net:8080/interviewer/get').then((resp)=>{
       this.setState({colorInterviewerList:resp.data});
     })
   }
