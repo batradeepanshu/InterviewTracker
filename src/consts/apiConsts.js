@@ -10,5 +10,5 @@ const prod_pre_url='https://lit-refuge-73772.herokuapp.com/';
 
 
 export const urlResolver= function(){
-  return ((process.env.NODE_ENV=='production')?prod_pre_url:dev_pre_url);
+  return ((process.env.NODE_ENV=='production')?prod_pre_url:prod_pre_url);
 }
