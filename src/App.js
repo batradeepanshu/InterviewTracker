@@ -5,6 +5,7 @@ import { BrowserRouter,Route,withRouter,Switch} from 'react-router-dom'
 import Login from './components/Login';
 import Calendar from './components/Calendar';
 import axios from 'axios';
+import {API_URLS,urlResolver} from './consts/apiConsts';
 
 
 const ConditionalHOC = (Component,condition)=>{
@@ -24,7 +25,7 @@ class App extends Component{
     this.state={};
   }
   componentWillMount(){
-    axios.get('https://wkwin5422023.global.publicisgroupe.net:8080/interviewer/get').then((resp)=>{
+    axios.get(urlResolver()+API_URLS.INT_GET).then((resp)=>{
       this.setState({colorInterviewerList:resp.data});
     })
   }

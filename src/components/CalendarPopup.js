@@ -2,6 +2,7 @@ import React, { Fragment, Component } from "react";
 import axios from "axios";
 import { colorInterviewerList } from "../consts/generalConstants";
 import DeletePopup from "./DeletePopup";
+import {API_URLS,urlResolver} from '../consts/apiConsts';
 import '../stylesheets/calendarPopup.css';
 
 class CalendarPopup extends Component {
@@ -25,7 +26,7 @@ class CalendarPopup extends Component {
       interviewer: this.refs.interviewer.value
     };
 
-    axios.post("https://wkwin5422023.global.publicisgroupe.net:8080/save", {
+    axios.post(urlResolver()+API_URLS.EVENT_SAVE, {
       eventObject
     }).then((response)=>{
     this.props.addToEventsList({...eventObject,_id:response.data.savedEvent._id});
@@ -36,7 +37,7 @@ class CalendarPopup extends Component {
     this.setState({ showDeletePopup: true });
   }
   deleteEntry(comment,code) {
-    axios.post("https://wkwin5422023.global.publicisgroupe.net:8080/delete", {
+    axios.post(urlResolver()+API_URLS.EVENT_DELETE, {
       id: this.props.selectedId,
       comment,
       code

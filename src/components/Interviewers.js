@@ -2,6 +2,7 @@ import { colorInterviewerList,setColorInterviewerList} from "../consts/generalCo
 import React, { Fragment, Component } from "react";
 import '../stylesheets/interviewers.css';
 import axios from 'axios';
+import {API_URLS,urlResolver} from '../consts/apiConsts';
 
 export default class Interviewers extends Component {
   constructor(props) {
@@ -36,7 +37,7 @@ export default class Interviewers extends Component {
     this.setState({showAddInt:!this.state.showAddInt});
   }
   deleteInterviewer(name){
-    axios.post('https://wkwin5422023.global.publicisgroupe.net:8080/interviewer/delete',
+    axios.post(urlResolver()+API_URLS.INT_DELETE,
     {name}).then((resp)=>{
       console.log('int delteion resp ==>',resp);
       this.props.deleteInterviewer(name);
