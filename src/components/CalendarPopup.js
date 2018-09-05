@@ -24,8 +24,8 @@ class CalendarPopup extends Component {
       desc: this.refs.desc.value,
       interviewer: this.refs.interviewer.value
     };
-    
-    axios.post("http://wkwin5422023.global.publicisgroupe.net:8080/save", {
+
+    axios.post("https://wkwin5422023.global.publicisgroupe.net:8080/save", {
       eventObject
     }).then((response)=>{
     this.props.addToEventsList({...eventObject,_id:response.data.savedEvent._id});
@@ -36,7 +36,7 @@ class CalendarPopup extends Component {
     this.setState({ showDeletePopup: true });
   }
   deleteEntry(comment,code) {
-    axios.post("http://wkwin5422023.global.publicisgroupe.net:8080/delete", {
+    axios.post("https://wkwin5422023.global.publicisgroupe.net:8080/delete", {
       id: this.props.selectedId,
       comment,
       code

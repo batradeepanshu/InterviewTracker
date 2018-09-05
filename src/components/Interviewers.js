@@ -36,7 +36,7 @@ export default class Interviewers extends Component {
     this.setState({showAddInt:!this.state.showAddInt});
   }
   deleteInterviewer(name){
-    axios.post('http://wkwin5422023.global.publicisgroupe.net:8080/interviewer/delete',
+    axios.post('https://wkwin5422023.global.publicisgroupe.net:8080/interviewer/delete',
     {name}).then((resp)=>{
       console.log('int delteion resp ==>',resp);
       this.props.deleteInterviewer(name);

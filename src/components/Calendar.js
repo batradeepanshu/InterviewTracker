@@ -36,7 +36,7 @@ class Calendar extends Component {
     this.setState({colorInterviewerList});
   }
   saveInterviewerDetails(name,color){
-    axios.post('http://wkwin5422023.global.publicisgroupe.net:8080/interviewer/save',{
+    axios.post('https://wkwin5422023.global.publicisgroupe.net:8080/interviewer/save',{
       intDetails:{
         name,
         color
@@ -67,7 +67,7 @@ class Calendar extends Component {
     return color;
   }
   componentWillMount(){
-    axios.get('http://wkwin5422023.global.publicisgroupe.net:8080').then((resp)=>{
+    axios.get('https://wkwin5422023.global.publicisgroupe.net:8080').then((resp)=>{
       let events=resp.data.map((event)=>{
         return {...event,start:new Date(event.start),
           end:new Date(event.end),
