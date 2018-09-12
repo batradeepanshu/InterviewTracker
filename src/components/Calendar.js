@@ -153,7 +153,6 @@ class Calendar extends Component {
     this.setState({myEventsList,filteredEventsList})
   }
   renderInterviewerOptions(){
-    debugger;
       return this.state.colorInterviewerList.map((cI,index)=>{
         return <option value={cI.name} key={cI.name+index}>{cI.name}</option>
       });
@@ -161,7 +160,6 @@ class Calendar extends Component {
 
   setFilterValue(e){
     let filteredEventsList=this.state.myEventsList.filter((event)=>{
-      debugger;
           if(e.target.value){
             return event.interviewer==e.target.value;
           }
@@ -218,7 +216,7 @@ class Calendar extends Component {
         step={30}
         timeslots={1}
         defaultView='week'
-        views={['week','day']}
+        views={['week','day','work_week']}
         defaultDate={new Date()}
         eventPropGetter={(this.eventStyleGetter)}
         min={new Date(2017, 10, 0, 9, 0, 0)}

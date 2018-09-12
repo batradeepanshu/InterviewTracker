@@ -13,7 +13,6 @@ export default class Interviewers extends Component {
   }
     checkIfNameExists(){
       let error='';
-      debugger
       this.state.colorInterviewerList.forEach((CIL,index)=>{
         if(CIL.name.toLowerCase()==this.refs.name.value.toLowerCase()){
           error='Already exists';
@@ -38,11 +37,23 @@ export default class Interviewers extends Component {
   }
   deleteInterviewer(name){
     axios.post(urlResolver()+API_URLS.INT_DELETE,
-    {name}).then((resp)=>{
+    {code:this.refs.intDelKey.value,name}).then((resp)=>{
       console.log('int delteion resp ==>',resp);
       this.props.deleteInterviewer(name);
     })
 
+  }
+  renderDeleteIntSection(name){
+      return (
+        <div className='delete-int-container'>
+          <input type='password' ref='intDelKey' placeholder='Enter Key'/>
+          <div className='btn btn-danger' onClick={()=>{this.deleteInterviewer(name)}}>Delete</div>
+        </div>
+      );
+  }
+
+  showDeleteSection(intName){
+    this.setState({deleteSectionInt:intName});
   }
   renderInts() {
     return this.state.colorInterviewerList.map((int, index) => {
@@ -53,7 +64,8 @@ export default class Interviewers extends Component {
             style={{ backgroundColor: int.color }}
           />
         <div className="int-name">{int.name}</div>
-        <span className='int-delete btn ' onClick={()=>{this.deleteInterviewer(int.name)}}>X</span>
+        <span className='int-delete btn ' onClick={()=>{this.showDeleteSection(int.name)}}>X</span>
+        {this.state.deleteSectionInt==int.name && this.renderDeleteIntSection(int.name)}
         </div>
       );
     });

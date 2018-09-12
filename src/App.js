@@ -10,7 +10,6 @@ import {API_URLS,urlResolver} from './consts/apiConsts';
 
 const ConditionalHOC = (Component,condition)=>{
   if(condition){
-    debugger;
     return <Component colorInterviewerList={condition}/>
   }
   else {
