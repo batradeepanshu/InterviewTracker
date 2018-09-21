@@ -32,9 +32,13 @@ class Calendar extends Component {
         deletedIndex=index;
       }
     });
+    let myEventsList=[...this.state.myEventsList];
+    myEventsList=myEventsList.filter((event,index)=>{
+      return event.interviewer!==name;
+    });
     let colorInterviewerList=[...this.state.colorInterviewerList];
     colorInterviewerList.splice(deletedIndex,1);
-    this.setState({colorInterviewerList});
+    this.setState({colorInterviewerList,myEventsList});
   }
   urlResolver(){
 
